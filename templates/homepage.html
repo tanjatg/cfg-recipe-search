@@ -5,22 +5,79 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Mina & Tanja's Recipe Search</title>
     <style>
+        * {
+        font-family: Tahoma, sans-serif;
+        }
+
         body {
         width: 80vw;
         height: 100vh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        background-color: black;
+        }
+
+        #content {
+        background-color: white;
+        margin: 20px;
+        height: 100vh;
+        padding: 20px;
+        }
+
+        h1 {
+        font-size: 35px;
+        text-align: center;
+        }
+
+        form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         }
 
         input {
             width: 50%;
+            margin: 5px auto;
         }
 
+        @media only screen and (max-width: 830px) {
+            input {
+            width: 75%;
+            }
+        }
+
+        @media only screen and (max-width: 560px) {
+            input {
+            width: 95%;
+            }
+        }
     </style>
 </head>
+
 <body>
-<h1>Mina & Tanja's Recipe Search</h1>
-<label for="ingredient">Enter the name of an ingredient</label>
-{{ INGREDIENT = <input id="ingredient" type="text" placeholder="For example, cheese, tomato, ..."> }}
-<button type="submit" for="ingredient">
+<section id="content">
+<h1>MINA & TANJA'S RECIPE SEARCH </h1>
+<p>Look for recipes with a specific ingredient:</p>
+<form method="POST">
+    <input name="ingredient" id="ingredient" type="text" placeholder="E.g., tomato, cheese, rice, ...">
+    <input type="submit">
+</form>
+<br>
+    <hr>
+<h2>In need of inspiration?</h2>
+<p>Why not experiment with {{ rand_ingredient }}?</p>
+    <a href="{{ rand_recipe[1]['url'] }}" target="_blank">{{ rand_recipe[1]['recipe'] }}</a>
+    <br>
+    <a href="{{ rand_recipe[2]['url'] }}" target="_blank">{{ rand_recipe[2]['recipe'] }}</a>
+    <br>
+    <a href="{{ rand_recipe[3]['url'] }}" target="_blank">{{ rand_recipe[3]['recipe'] }}</a>
+    <br>
+    <a href="{{ rand_recipe[4]['url'] }}" target="_blank">{{ rand_recipe[4]['recipe'] }}</a>
+    <br>
+    <a href="{{ rand_recipe[5]['url'] }}" target="_blank">{{ rand_recipe[5]['recipe'] }}</a>
+    <br>
+</section>
 </body>
 
 </html>
