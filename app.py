@@ -8,4 +8,8 @@ app = Flask(__name__)
 def recipe_search():
 
 
+@app.get("/<name>")
+def display_recipes():
+
+
 app.run(debug=True)
