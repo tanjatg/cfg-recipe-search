@@ -18,11 +18,39 @@
         background-color: black;
         }
 
-        #content {
+        .main-content-section {
         background-color: white;
-        margin: 20px;
-        height: 100vh;
-        padding: 20px;
+        margin: 20px 20px 0 20px;
+        padding: 20px 20px 5px 20px;
+        }
+
+        .random-recipe-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-auto-flow: row;
+        background-color: white;
+        margin: 0 20px;
+        padding: 5px 20px 20px 20px;
+        }
+
+        .random-recipe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 25px;
+        }
+
+        .random-recipe img {
+        width: 80%;
+        height auto;
+        }
+
+        .random-link {
+        position: relative;
+        text-decoration: none;
+        color: black;
+        text-align: center;
         }
 
         h1 {
@@ -56,27 +84,60 @@
 </head>
 
 <body>
-<section id="content">
-<h1>MINA & TANJA'S RECIPE SEARCH </h1>
-<p>Look for recipes with a specific ingredient:</p>
-<form method="POST">
-    <input name="ingredient" id="ingredient" type="text" placeholder="E.g., tomato, cheese, rice, ...">
-    <input type="submit">
-</form>
-<br>
-    <hr>
-<h2>In need of inspiration?</h2>
-<p>Why not experiment with {{ rand_ingredient }}?</p>
-    <a href="{{ rand_recipe[1]['url'] }}" target="_blank">{{ rand_recipe[1]['recipe'] }}</a>
-    <br>
-    <a href="{{ rand_recipe[2]['url'] }}" target="_blank">{{ rand_recipe[2]['recipe'] }}</a>
-    <br>
-    <a href="{{ rand_recipe[3]['url'] }}" target="_blank">{{ rand_recipe[3]['recipe'] }}</a>
-    <br>
-    <a href="{{ rand_recipe[4]['url'] }}" target="_blank">{{ rand_recipe[4]['recipe'] }}</a>
-    <br>
-    <a href="{{ rand_recipe[5]['url'] }}" target="_blank">{{ rand_recipe[5]['recipe'] }}</a>
-    <br>
+<section class="main-content-section">
+    <h1>MINA & TANJA'S RECIPE SEARCH </h1>
+    <p>Look for recipes with a specific ingredient:</p>
+    <form method="POST">
+        <input name="ingredient" id="ingredient" type="text" placeholder="E.g., tomato, cheese, rice, ..." required>
+        <input type="submit">
+    </form>
+    <br><hr>
+    <h2>In need of inspiration?</h2>
+    <p>Why not experiment with {{ rand_ingredient }}?</p>
+</section>
+
+<section class="random-recipe-section">
+
+    <div class="random-recipe">
+        <img src="{{ rand_recipe[1]['image'] }}">
+        <a class="random-link" href="{{ rand_recipe[1]['url'] }}" target="_blank">{{ rand_recipe[1]['recipe'] }}</a>
+    </div>
+    <div class="random-recipe">
+        <img src="{{ rand_recipe[2]['image'] }}">
+        <a class="random-link" href="{{ rand_recipe[2]['url'] }}" target="_blank">{{ rand_recipe[2]['recipe'] }}</a>
+    </div>
+    <div class="random-recipe">
+        <img src="{{ rand_recipe[3]['image'] }}">
+        <a class="random-link" href="{{ rand_recipe[3]['url'] }}" target="_blank">{{ rand_recipe[3]['recipe'] }}</a>
+    </div>
+    <div class="random-recipe">
+        <img src="{{ rand_recipe[4]['image'] }}">
+        <a class="random-link" href="{{ rand_recipe[4]['url'] }}" target="_blank">{{ rand_recipe[4]['recipe'] }}</a>
+    </div>
+    <div class="random-recipe">
+        <img src="{{ rand_recipe[5]['image'] }}">
+        <a class="random-link" href="{{ rand_recipe[5]['url'] }}" target="_blank">{{ rand_recipe[5]['recipe'] }}</a>
+    </div>
+    <div class="random-recipe">
+        <img src="{{ rand_recipe[6]['image'] }}">
+        <a class="random-link" href="{{ rand_recipe[6]['url'] }}" target="_blank">{{ rand_recipe[6]['recipe'] }}</a>
+    </div>
+    <div class="random-recipe">
+        <img src="{{ rand_recipe[7]['image'] }}">
+        <a class="random-link" href="{{ rand_recipe[7]['url'] }}" target="_blank">{{ rand_recipe[7]['recipe'] }}</a>
+    </div>
+    <div class="random-recipe">
+        <img src="{{ rand_recipe[8]['image'] }}">
+        <a class="random-link" href="{{ rand_recipe[8]['url'] }}" target="_blank">{{ rand_recipe[8]['recipe'] }}</a>
+    </div>
+    <div class="random-recipe">
+        <img src="{{ rand_recipe[9]['image'] }}">
+        <a class="random-link" href="{{ rand_recipe[9]['url'] }}" target="_blank">{{ rand_recipe[9]['recipe'] }}</a>
+    </div>
+    <div class="random-recipe">
+        <img src="{{ rand_recipe[10]['image'] }}">
+        <a class="random-link" href="{{ rand_recipe[10]['url'] }}" target="_blank">{{ rand_recipe[10]['recipe'] }}</a>
+    </div>
 </section>
 </body>
 

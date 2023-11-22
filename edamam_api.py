@@ -67,6 +67,6 @@ def random_recipe():
     for result in results:
         recipe = result['recipe']['label']
         url = result['recipe']['url']
-        list.append({'recipe': recipe, 'url': url})
+        image = result['recipe']['image']
+        list.append({'recipe': recipe, 'url': url, 'image': image})
     return list
-random_recipe()

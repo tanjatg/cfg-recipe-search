@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def homepage_form_post():
-    ingredient = request.form['ingredient']
-    return render_template('homepage.html', ingredient=ingredient)
+        ingredient = request.form['ingredient']
+        return render_template('homepage.html', ingredient=ingredient)
 
 @app.get('/')
 def homepage_random_ingredient():
