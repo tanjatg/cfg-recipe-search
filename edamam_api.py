@@ -30,6 +30,7 @@ def run():
     results = recipe_search(ingredient)
     for result in results:
         recipe = result['recipe']
+        print(recipe)
         print(recipe['label'])
         print(recipe['uri'])
         print(recipe['image'])
