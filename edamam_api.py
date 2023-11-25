@@ -9,20 +9,8 @@ def recipe_search(ingredient):
     'https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, APP_ID, APP_KEY)
     )
     data = result.json()
-    print(data)
     return data['hits']
-recipe_search(ingredient="cheese")
 
-def run():
-    ingredient = input('What do you want to search for? ')
-    results = recipe_search(ingredient)
-    for result in results:
-        recipe = result['recipe']
-        print(recipe)
-        print(recipe['label'])
-        print(recipe['uri'])
-        print(recipe['image'])
-        print()
 
 def random_ingredient():
     ingredients = [
@@ -59,3 +47,6 @@ def random_recipe():
         image = result['recipe']['image']
         list.append({'recipe': recipe, 'url': url, 'image': image})
     return list
+
+def calorie_search():
+    print("poo")
