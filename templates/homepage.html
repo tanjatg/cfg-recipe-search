@@ -6,45 +6,45 @@
     <title>Mina & Tanja's Recipe Search</title>
     <style>
         * {
-        font-family: Tahoma, sans-serif;
+            font-family: Tahoma, sans-serif;
         }
 
         body {
-        width: 80vw;
-        height: 100vh;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        background-color: black;
+            width: 80vw;
+            height: 100vh;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
         }
 
         .main-content-section {
-        background-color: white;
-        margin: 20px 20px 0 20px;
-        padding: 20px 20px 5px 20px;
+            background-color: white;
+            margin: 20px 20px 0 20px;
+            padding: 20px 20px 5px 20px;
         }
 
         .random-recipe-section {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: auto;
-        grid-auto-flow: row;
-        background-color: white;
-        margin: 0 20px;
-        padding: 5px 20px 20px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            grid-auto-flow: row;
+            background-color: white;
+            margin: 0 20px;
+            padding: 5px 20px 20px 20px;
         }
 
         p {
-        margin: 0;
+            margin: 0;
         }
 
         .random-recipe {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-bottom: 25px;
-        position: relative;
-        text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 25px;
+            position: relative;
+            text-align: center;
         }
 
         .random-recipe img {
@@ -53,31 +53,44 @@
         }
 
         .random-link {
-        text-decoration: none;
-        color: black;
-        text-align: center;
-        text-transform: capitalize;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgba(255,255,255,0.5)
+            text-decoration: none;
+            display: -webkit-box;
+            color: black;
+            text-align: center;
+            font-size: 17.5px;
+            text-transform: capitalize;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            padding: 3.5px 7px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255,255,255,0.85);
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         h1 {
-        font-size: 35px;
-        text-align: center;
+            font-size: 35px;
+            text-align: center;
         }
 
         form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         input {
             width: 50%;
             margin: 5px auto;
+        }
+
+        @media only screen and (max-width: 1350px) {
+            .random-recipe-section {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
         }
 
         @media only screen and (max-width: 1111px) {
@@ -86,9 +99,15 @@
             }
         }
 
+        @media only screen and (max-width: 890px) {
+            .random-link {
+                font-size: 15px;
+            }
+        }
+
         @media only screen and (max-width: 830px) {
             input {
-            width: 75%;
+                width: 75%;
             }
         }
 
@@ -106,14 +125,16 @@
             body {
                 width: 95vw;
             }
+            h1 {
+                font-size: 25px;
+            }
         }
 
         @media only screen and (max-width: 425px) {
-        .random-recipe img {
-            min-width: 100px;
+            .random-recipe img {
+                min-width: 100px;
+            }
         }
-        }
-
     </style>
 </head>
 
