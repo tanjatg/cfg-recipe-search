@@ -35,8 +35,7 @@
         }
 
         p {
-            margin: 0;
-            text-align: left;
+            margin: 1px 0;
         }
 
         label {
@@ -45,6 +44,7 @@
 
         hr {
             border: rgba(211,211,211, 25%) solid 1px;
+            width: inherit;
         }
 
         .random-recipe {
@@ -68,7 +68,7 @@
             font-size: 17.5px;
             text-transform: capitalize;
             position: absolute;
-            top: 45%;
+            top: 40%;
             left: 50%;
             padding: 3.5px 7px;
             transform: translate(-50%, -50%);
@@ -113,6 +113,24 @@
             padding: 3px 1px;
         }
 
+        footer {
+            padding: 25px 0;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: black;
+            padding: 0 3px;
+        }
+
+        footer a:hover{
+            color: white;
+            background-color: black;
+        }
 
         @media only screen and (max-width: 1350px) {
             .random-recipe-section {
@@ -128,7 +146,7 @@
 
         @media only screen and (max-width: 890px) {
             .random-link {
-                font-size: 15px;
+                font-size: 16px;
             }
         }
 
@@ -155,7 +173,6 @@
         }
     </style>
 </head>
-
 <body>
 <section class="main-content-section">
     <h1>Mina & Tanja's Recipe Search </h1>
@@ -245,6 +262,11 @@
         <a class="random-link" href="{{ rand_recipe[10]['url'] }}" target="_blank">{{ rand_recipe[10]['recipe'] }}</a>
     </div>
 </section>
+<hr>
+<footer>
+    <p>This website uses the <a href="https://www.edamam.com/" target="_blank">Edamam API</a></p>
+    <p>Built by <a href="https://github.com/mmylui" target="_blank">Mina</a> and <a href="https://github.com/tanjatg" target="_blank">Tanja</a></p>
+</footer>
 </body>
 
 </html>
