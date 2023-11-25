@@ -14,6 +14,9 @@ def homepage_random_ingredient():
 @app.get("/recipes")
 def display_recipes():
     ingredient = request.args.get('ingredient')
+    # time = request.args.get('time', default="1%2B")
+    # calories = request.args.get('calories', default="2500")
+    # cuisineType = request.args.get('cuisineType', default="British")
     recipe_list = recipe_search(ingredient)
     return render_template('search_results.html', ingredient=ingredient, recipe_list=recipe_list)
 
