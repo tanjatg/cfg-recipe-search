@@ -43,20 +43,16 @@
             top: 15px;
             left: 20px;
             border: none;
-        }
-
-        .burger-menu div {
+            appearance: none;
             width: 25px;
-            height: 5px;
-            margin-bottom: 2px;
-            background-color: black;
+            height: 20px;
+            background: linear-gradient(to bottom, #000 20%, transparent 21%, transparent 40%, #000 41%,
+            #000 60%, transparent 61%, transparent 80%, #000 81%);
         }
 
-        .burger-menu-index button {
-            padding-left: 10px;
-            padding-bottom: 5px;
-            border: none;
-            background-color: inherit;
+        .burger-menu:checked {
+            background: linear-gradient(45deg, transparent 45%, #000 46%, #000 55%, transparent 56%),
+            linear-gradient(-45deg, transparent 45%, #000 46%, #000 55%, transparent 56%);
         }
 
         .burger-menu:checked ~ .burger-menu-index {
