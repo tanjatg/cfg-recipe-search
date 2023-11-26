@@ -6,10 +6,36 @@ def recipe_search(ingredient):
     APP_ID = "1615c37c"
     APP_KEY = "55c93edaaee28bc3ad1ffea9ca66f8b4"
     result = requests.get(
-    'https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, APP_ID, APP_KEY)
+        'https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, APP_ID, APP_KEY)
     )
     data = result.json()
     return data['hits']
+
+
+def search_by_time(time):
+    APP_ID = "1615c37c"
+    APP_KEY = "55c93edaaee28bc3ad1ffea9ca66f8b4"
+    result = requests.get('https://api.edamam.com/api/recipes/v2?type=public&app_id={}&app_key={}&time={}&random=true'.format(APP_ID, APP_KEY, time))
+    data = result.json()
+    return data['hits']
+
+
+def search_by_cuisine(cuisineType):
+    APP_ID = "1615c37c"
+    APP_KEY = "55c93edaaee28bc3ad1ffea9ca66f8b4"
+    result = requests.get('https://api.edamam.com/api/recipes/v2?type=public&app_id={}&app_key={}&cuisineType={}&random=true'.format(APP_ID, APP_KEY, cuisineType))
+    data = result.json()
+    print(data)
+    return data['hits']
+
+
+def search_by_calorie(calories):
+    APP_ID = "1615c37c"
+    APP_KEY = "55c93edaaee28bc3ad1ffea9ca66f8b4"
+    result = requests.get('https://api.edamam.com/api/recipes/v2?type=public&app_id={}&app_key={}&calories={}&random=true'.format(APP_ID, APP_KEY, calories))
+    data = result.json()
+    print('https://api.edamam.com/api/recipes/v2?type=public&app_id={}&app_key={}&calories={}&random=true'.format(APP_ID, APP_KEY, calories))
+    return data["hits"]
 
 
 def random_ingredient():
@@ -36,6 +62,7 @@ def random_ingredient():
     random_ingredient = random.choice(ingredients)
     return random_ingredient
 
+
 def random_recipe():
     rand_ingredient = random_ingredient()
     ingredient = rand_ingredient
@@ -48,5 +75,15 @@ def random_recipe():
         list.append({'recipe': recipe, 'url': url, 'image': image})
     return list
 
-def calorie_search():
-    print("poo")
+
+# def testrun():
+#     results = search_by_calorie('100')
+#     for result in results:
+#         recipe = result['recipe']
+#         print(recipe)
+#         print(recipe['label'])
+#         print(recipe['uri'])
+#         print(recipe['image'])
+#
+#
+# testrun()
