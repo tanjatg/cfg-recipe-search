@@ -21,7 +21,7 @@
         h1 {
             font-size: 2rem;
             text-shadow: lightgrey 2.5px 5px 5px;
-            padding-left: 65px;
+            padding: 0 65px;
         }
 
         .burger-menu {
@@ -69,8 +69,7 @@
             margin-bottom: 3.5px;
         }
 
-        .search-link,
-        .homepage {
+        .search-link {
         list-style: none;
         padding: 1.5px 7.5px;
         &:hover {
@@ -80,16 +79,20 @@
         }
         }
 
-        .search-link a,
-        .homepage{
+        .search-link a {
             text-decoration: none;
             color: black;
         }
 
-        .homepage:hover {
-            background-color: lightgrey;
-            font-weight: bold;
-            cursor: pointer;
+        .homepage {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .homepage img {
+            height: 25px;
+            width: auto;
         }
 
         section {
@@ -177,10 +180,10 @@
                     <li class="search-link"><a href="../recipes-by-calories/500">Below 500 kcal</a></li>
                 </ul>
             </li>
-          <p><a href="../" class="homepage">Back to homepage</a></p>
         </ul>
     </div>
     <h1>Mina & Tanja's Recipe Search </h1>
+    <a href="../" class="homepage"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Home-icon.svg/2048px-Home-icon.svg.png"></a>
 </nav>
 <section>
 <p class="text-center">Search Results for {{ ingredient.title() }} </p>
