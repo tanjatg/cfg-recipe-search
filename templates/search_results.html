@@ -193,7 +193,7 @@
       {% for result in recipe_list %}
         <a href="{{ result['recipe']['url'] }}" class="col-md-4 pb-4 text-decoration-none" style="height: 300px;">
           <div class="position-relative d-flex justify-content-center align-items-center h-100" style="background: center no-repeat url({{ result['recipe']['image'] }})">
-            <div class="bg-light p-3 opacity-75 w-50"><span class="text-dark recipe-label">{{ result['recipe']['label'].upper() }}</span></div>
+            <div class="bg-light p-3 opacity-75 w-50"><span class="text-dark recipe-label">{{ result['recipe']['label'].title() }}</span></div>
           </div>
         </a>
       {% endfor %}
