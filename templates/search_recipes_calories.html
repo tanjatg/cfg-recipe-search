@@ -90,7 +90,7 @@
           padding-top: 80px;
         }
 
-        span {
+        .recipe-label {
           display: -webkit-box;
           -webkit-line-clamp: 4;
           -webkit-box-orient: vertical;
@@ -106,38 +106,38 @@
         <ul class="burger-menu-index">Search recipes by...
             <li class="menu-title"><p>... cooking time:</p>
                 <ul>
-                    <li class="search-link"><a href="/recipes-by-time/15">Up to 15min</a></li>
-                    <li class="search-link"><a href="/recipes-by-time/30">Up to 30min</a></li>
-                    <li class="search-link"><a href="/recipes-by-time/60">Up to 60min</a></li>
+                    <li class="search-link"><a href="../recipes-by-time/15">Up to 15min</a></li>
+                    <li class="search-link"><a href="../recipes-by-time/30">Up to 30min</a></li>
+                    <li class="search-link"><a href="../recipes-by-time/60">Up to 60min</a></li>
                 </ul>
             </li>
             <li class="menu-title"><p>... cuisine type:</p>
                 <ul>
-                    <li class="search-link"><a href="recipes-by-cuisine/American">American</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/Asian">Asian</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/British">British</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/Carribean">Caribbean</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/Central%20Europe">Central Europe</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/Chinese">Chinese</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/Eastern%20European">Eastern European</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/French">French</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/Indian">Indian</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/Italian">Italian</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/Japanese">Japanese</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/Kosher">Kosher</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/Mediterranean">Mediterranean</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/Mexican">Mexican</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/Middle%20Eastern">Middle Eastern</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/Nordic">Nordic</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/South%20American">South American</a></li>
-                    <li class="search-link"><a href="recipes-by-cuisine/South%20East%20Asian">South East Asian</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/American">American</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/Asian">Asian</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/British">British</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/Carribean">Caribbean</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/Central%20Europe">Central Europe</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/Chinese">Chinese</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/Eastern%20European">Eastern European</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/French">French</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/Indian">Indian</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/Italian">Italian</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/Japanese">Japanese</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/Kosher">Kosher</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/Mediterranean">Mediterranean</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/Mexican">Mexican</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/Middle%20Eastern">Middle Eastern</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/Nordic">Nordic</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/South%20American">South American</a></li>
+                    <li class="search-link"><a href="../recipes-by-cuisine/South%20East%20Asian">South East Asian</a></li>
                 </ul>
             </li>
             <li class="menu-title"><p>... calorie count:</p>
                 <ul>
-                    <li class="search-link"><a href="/recipes-by-calories/100" >Below 100 kcal</a></li>
-                    <li class="search-link"><a href="/recipes-by-calories/250">Below 250 kcal</a></li>
-                    <li class="search-link"><a href="/recipes-by-calories/500">Below 500 kcal</a></li>
+                    <li class="search-link"><a href="../recipes-by-calories/100" >Below 100 kcal</a></li>
+                    <li class="search-link"><a href="../recipes-by-calories/250">Below 250 kcal</a></li>
+                    <li class="search-link"><a href="../recipes-by-calories/500">Below 500 kcal</a></li>
                 </ul>
             </li>
           <p><a href="../" class="homepage">Back to homepage</a></p>
@@ -152,7 +152,7 @@
       {% for result in recipe_list %}
         <a href="{{ result['recipe']['url'] }}" class="col-md-4 pb-4 text-decoration-none" style="height: 300px;" target="_blank">
           <div class="position-relative d-flex justify-content-center align-items-center h-100" style="background: center no-repeat url({{ result['recipe']['image'] }})">
-            <span class="text-dark bg-light p-3 opacity-75 w-50">{{ result['recipe']['label'].title() }}</span>
+            <div class="p-3 bg-light opacity-75 w-50"><span class="text-dark recipe-label">{{ result['recipe']['label'].title() }}</span></div>
           </div>
         </a>
       {% endfor %}
