@@ -30,6 +30,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 20px 0px 10px #FBFBFB;
         }
 
         h1 {
@@ -59,7 +60,6 @@
             display: block;
         }
 
-
         .burger-menu-index {
             z-index: 998;
             position: absolute;
@@ -70,6 +70,7 @@
             padding-top: 25px;
             padding-left: 25px;
             display: none;
+            box-shadow: 20px 0px 10px #FBFBFB;
         }
 
         .menu-title {
@@ -127,7 +128,7 @@
         select{
             width: 100%;
             margin: 5px auto;
-            padding: 3px 1px;
+            padding: 3px 10px;
         }
 
 
@@ -251,6 +252,7 @@
             }
             nav h1 {
                 font-size: 1rem;
+                text-align: center;
             }
         }
     </style>
@@ -306,13 +308,6 @@
     <form method="GET" action="/recipes">
         <p style="margin: 1px 0 5px 0">Look for recipes by ingredient</p>
         <input name="ingredient" id="ingredient" type="text" placeholder="E.g., tomato, cheese, rice, ..." required>
-
-<!--        <label for="time">...maximum cooking time in minutes:</label>-->
-<!--        <input name="time" id="time" type="number" min="0">-->
-
-<!--        <label for="calories">...maximum calorie count in kcal:</label>-->
-<!--        <input name="calories" id="calories" type="number" min="0">-->
-
         <div class="buttons">
             <input type="reset">
             <input type="submit">
