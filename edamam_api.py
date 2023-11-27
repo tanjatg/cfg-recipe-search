@@ -25,7 +25,6 @@ def search_by_cuisine(cuisineType):
     APP_KEY = "55c93edaaee28bc3ad1ffea9ca66f8b4"
     result = requests.get('https://api.edamam.com/api/recipes/v2?type=public&app_id={}&app_key={}&cuisineType={}&random=true'.format(APP_ID, APP_KEY, cuisineType))
     data = result.json()
-    print(data)
     return data['hits']
 
 
@@ -34,7 +33,6 @@ def search_by_calorie(calories):
     APP_KEY = "55c93edaaee28bc3ad1ffea9ca66f8b4"
     result = requests.get('https://api.edamam.com/api/recipes/v2?type=public&app_id={}&app_key={}&calories={}&random=true'.format(APP_ID, APP_KEY, calories))
     data = result.json()
-    print('https://api.edamam.com/api/recipes/v2?type=public&app_id={}&app_key={}&calories={}&random=true'.format(APP_ID, APP_KEY, calories))
     return data["hits"]
 
 
@@ -66,24 +64,32 @@ def random_ingredient():
 def random_recipe():
     rand_ingredient = random_ingredient()
     ingredient = rand_ingredient
-    list = [ingredient]
+    list = []
     results = recipe_search(ingredient)
     for result in results:
         recipe = result['recipe']['label']
         url = result['recipe']['url']
         image = result['recipe']['image']
-        list.append({'recipe': recipe, 'url': url, 'image': image})
+        servings = int(result['recipe']['yield'])
+        calories = int(result['recipe']['calories'])
+        cal_total = round((calories / 2000) * 100, 1)
+        joules = int(calories * 4.184)
+        fat = int(result['recipe']['totalNutrients']['FAT']['quantity'])
+        fat_total = round((fat / 70) * 100, 1)
+        saturate = int(result['recipe']['totalNutrients']['FASAT']['quantity'])
+        saturate_total = round((saturate / 20) * 100, 1)
+        sugar = int(result['recipe']['totalNutrients']['SUGAR']['quantity'])
+        sugar_total = round((sugar / 90) * 100, 1)
+        salt = int(result['recipe']['totalNutrients']['NA']['quantity']) / 1000
+        salt_total = round((salt / 6) * 100, 1)
+        list.append({'recipe': recipe, 'url': url, 'image': image, 'servings': servings, 'joules': joules, 'calories': calories, 'fat': fat, 'saturate': saturate, 'sugar': sugar, "salt": salt, 'salt_total': salt_total, 'sugar_total': sugar_total, 'saturate_total': saturate_total, 'fat_total': fat_total, 'cal_total': cal_total})
+    list.append(ingredient)
     return list
 
 
 # def testrun():
-#     results = search_by_calorie('100')
-#     for result in results:
-#         recipe = result['recipe']
-#         print(recipe)
-#         print(recipe['label'])
-#         print(recipe['uri'])
-#         print(recipe['image'])
+#     results = random_recipe()
+#     print(results)
 #
 #
 # testrun()

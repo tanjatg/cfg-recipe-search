@@ -157,9 +157,7 @@
         }
 
         .random-recipe {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: inline-block;
             padding-bottom: 25px;
             position: relative;
             text-align: center;
@@ -188,6 +186,71 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
+        .tooltiptext {
+            display: none;
+            width: auto;
+            background-color: rgba(255,255,255,0.85);
+            text-align: center;
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 2;
+            bottom: -25%;
+            left: 75%;
+            line-height: 1rem;
+        }
+
+        .random-recipe:hover .tooltiptext {
+            display: block;
+        }
+
+        .nutrient-label {
+            display: flex;
+            flex-direction: column;
+            font-size: 9px;
+            margin: 0;
+            justify-content: space-evenly;
+            padding-top: 1px;
+            align-items: center;
+        }
+
+        .nutrient-section {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            border-radius: 15px;
+            justify-content: flex-end;
+            align-items: center;
+            width: 65px;
+            margin-top: 4px;
+        }
+
+        .nutrient-section p,
+        .serving-info{
+            margin: 0;
+        }
+
+        .serving-info:nth-child(1) {
+            font-size: 14px;
+        }
+
+        .serving-info:nth-child(2) {
+            font-size: 10px;
+        }
+
+        .nutrient-title {
+            font-weight: bold;
+
+        }
+
+        .nutrient-separator {
+            height: 1px;
+            width: 100%;
+            background-color: black;
+        }
+
 
 /* Footer styles */
 
@@ -261,6 +324,12 @@
             .burger-menu-index {
                 width: 100vw;
             }
+            .random-recipe-section {
+                grid-template-columns: 1fr;
+            }
+            .tooltiptext {
+                bottom: 0%;
+            }
         }
     </style>
 </head>
@@ -326,47 +395,52 @@
 </section>
 
 <section class="random-recipe-section">
+    {% for results in rand_recipe[:-1] %}
 
-    <div class="random-recipe">
-        <img src="{{ rand_recipe[1]['image'] }}">
-        <a class="random-link" href="{{ rand_recipe[1]['url'] }}" target="_blank">{{ rand_recipe[1]['recipe'] }}</a>
-    </div>
-    <div class="random-recipe">
-        <img src="{{ rand_recipe[2]['image'] }}">
-        <a class="random-link" href="{{ rand_recipe[2]['url'] }}" target="_blank">{{ rand_recipe[2]['recipe'] }}</a>
-    </div>
-    <div class="random-recipe">
-        <img src="{{ rand_recipe[3]['image'] }}">
-        <a class="random-link" href="{{ rand_recipe[3]['url'] }}" target="_blank">{{ rand_recipe[3]['recipe'] }}</a>
-    </div>
-    <div class="random-recipe">
-        <img src="{{ rand_recipe[4]['image'] }}">
-        <a class="random-link" href="{{ rand_recipe[4]['url'] }}" target="_blank">{{ rand_recipe[4]['recipe'] }}</a>
-    </div>
-    <div class="random-recipe">
-        <img src="{{ rand_recipe[5]['image'] }}">
-        <a class="random-link" href="{{ rand_recipe[5]['url'] }}" target="_blank">{{ rand_recipe[5]['recipe'] }}</a>
-    </div>
-    <div class="random-recipe">
-        <img src="{{ rand_recipe[6]['image'] }}">
-        <a class="random-link" href="{{ rand_recipe[6]['url'] }}" target="_blank">{{ rand_recipe[6]['recipe'] }}</a>
-    </div>
-    <div class="random-recipe">
-        <img src="{{ rand_recipe[7]['image'] }}">
-        <a class="random-link" href="{{ rand_recipe[7]['url'] }}" target="_blank">{{ rand_recipe[7]['recipe'] }}</a>
-    </div>
-    <div class="random-recipe">
-        <img src="{{ rand_recipe[8]['image'] }}">
-        <a class="random-link" href="{{ rand_recipe[8]['url'] }}" target="_blank">{{ rand_recipe[8]['recipe'] }}</a>
-    </div>
-    <div class="random-recipe">
-        <img src="{{ rand_recipe[9]['image'] }}">
-        <a class="random-link" href="{{ rand_recipe[9]['url'] }}" target="_blank">{{ rand_recipe[9]['recipe'] }}</a>
-    </div>
-    <div class="random-recipe">
-        <img src="{{ rand_recipe[10]['image'] }}">
-        <a class="random-link" href="{{ rand_recipe[10]['url'] }}" target="_blank">{{ rand_recipe[10]['recipe'] }}</a>
-    </div>
+            <div class="random-recipe">
+        <img src="{{ results['image'] }}">
+        <a class="random-link" href="{{ results['url'] }}" target="_blank">{{ results['recipe'] }}</a>
+        <span class="tooltiptext">
+            <p class="serving-info">{{ results['servings'] }} servings</p>
+            <p class="serving-info">Each serving contains:</p>
+            <div class="nutrient-label">
+                <div class="nutrient-section">
+                    <p class="nutrient-title">Energy</p>
+                    <p class="nutrient">{{ results['joules'] }} kJ</p>
+                    <p class="nutrient">{{ results['calories'] }} kcal</p>
+                    <p class="nutrient-separator"></p>
+                    <p class="nutrient-daily">{{ results['cal_total'] }} %</p>
+                </div>
+                <div class="nutrient-section">
+                    <p class="nutrient-title">Fat</p>
+                    <p class="nutrient">{{ results['fat'] }} g</p>
+                    <p class="nutrient-separator"></p>
+                    <p class="nutrient-daily">{{ results['fat_total'] }} %</p>
+                </div>
+                <div class="nutrient-section">
+                    <p class="nutrient-title">Saturates</p>
+                    <p class="nutrient">{{ results['saturate'] }} g</p>
+                    <p class="nutrient-separator"></p>
+                    <p class="nutrient-daily"> {{ results['saturate_total'] }} %</p>
+                </div>
+                <div class="nutrient-section">
+                    <p class="nutrient-title">Sugars</p>
+                    <p class="nutrient">{{ results['sugar'] }} g</p>
+                    <p class="nutrient-separator"></p>
+                    <p class="nutrient-daily"> {{ results['sugar_total'] }} %</p>
+                    </div>
+                <div class="nutrient-section">
+                    <p class="nutrient-title">Salt</p>
+                    <p class="nutrient">{{ results['salt'] }} g</p>
+                    <p class="nutrient-separator"></p>
+                    <p class="nutrient-daily"> {{ results['salt_total'] }} %</p>
+                </div>
+                </div>
+            </div>
+        </span>
+    {% endfor %}
+
+
 </section>
 <hr>
 <footer>

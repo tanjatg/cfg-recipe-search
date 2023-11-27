@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.get('/')
 def homepage_random_ingredient():
     rand_recipe = random_recipe()
-    rand_ingredient = rand_recipe[0]
+    rand_ingredient = rand_recipe[-1]
     return render_template('homepage.html', rand_ingredient=rand_ingredient, rand_recipe=rand_recipe)
 
 
