@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from edamam_api import random_recipe, recipe_search, search_by_calorie, search_by_cuisine, search_by_time
+from edamam_api import random_recipe, recipe_search, search_by_calorie, search_by_cuisine, search_by_time, search_by_diet
 
 app = Flask(__name__)
 
@@ -38,5 +38,11 @@ def display_by_cuisine(cuisineType):
     cuisine = cuisineType
     return render_template('search_recipes_cuisine.html', recipe_list=recipe_list, cuisine=cuisine)
 
+
+@app.get("/recipes-by-diet/<diet>")
+def display_by_diet(diet):
+    recipe_list = search_by_diet(diet)
+    health = diet
+    return render_template('search_recipes_diet.html', recipe_list=recipe_list, health=health)
 
 app.run(debug=True)

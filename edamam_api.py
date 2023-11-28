@@ -36,6 +36,14 @@ def search_by_calorie(calories):
     return data["hits"]
 
 
+def search_by_diet(diet):
+    APP_ID = "1615c37c"
+    APP_KEY = "55c93edaaee28bc3ad1ffea9ca66f8b4"
+    result = requests.get('https://api.edamam.com/api/recipes/v2?type=public&app_id={}&app_key={}&health={}&random=true'.format(APP_ID, APP_KEY, diet))
+    data = result.json()
+    return data["hits"]
+
+
 def random_ingredient():
     ingredients = [
         "almond", "anchovy", "apple", "apricot", "artichoke", "asparagus", "avocado", "aubergine",

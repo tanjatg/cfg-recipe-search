@@ -101,6 +101,29 @@
             color: black;
         }
 
+        .search-link {
+            display: none;
+        }
+
+       .nav-index-title:checked ~ .nav-index-content .search-link {
+            display: block;
+        }
+
+       input[type="checkbox"]:not(.burger-menu) {
+            appearance: none;
+            border-radius: 50%;
+            border: 1px solid black;
+            background-color: #FBFBFB;
+            position: relative;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-bottom: 1px;
+       }
+
+       input[type="checkbox"]:not(.burger-menu):checked {
+            background-color: black;
+       }
 
 /* Search section styles */
         .main-content-section {
@@ -190,7 +213,7 @@
         .tooltiptext {
             display: none;
             width: auto;
-            background-color: rgba(255,255,255,0.85);
+            background-color: rgba(255,255,255,0.95);
             text-align: center;
             padding: 5px;
             border: 1px solid black;
@@ -331,6 +354,9 @@
                 bottom: 0%;
             }
         }
+
+        \* test section *\
+
     </style>
 </head>
 <body>
@@ -338,15 +364,15 @@
     <div class="menu">
         <input type="checkbox" class="burger-menu" />
         <ul class="burger-menu-index">Search recipes by...
-            <li class="menu-title"><p>... cooking time:</p>
-                <ul>
+            <li class="menu-title"><input type="checkbox" class="nav-index-title"> Cooking time</input>
+                <ul class="nav-index-content">
                     <li class="search-link"><a href="/recipes-by-time/15">Up to 15min</a></li>
                     <li class="search-link"><a href="/recipes-by-time/30">Up to 30min</a></li>
                     <li class="search-link"><a href="/recipes-by-time/60">Up to 60min</a></li>
                 </ul>
             </li>
-            <li class="menu-title"><p>... cuisine type:</p>
-                <ul>
+            <li class="menu-title"><input type="checkbox" class="nav-index-title"> Cuisine type</input>
+                <ul class="nav-index-content">
                     <li class="search-link"><a href="recipes-by-cuisine/American">American</a></li>
                     <li class="search-link"><a href="recipes-by-cuisine/Asian">Asian</a></li>
                     <li class="search-link"><a href="recipes-by-cuisine/British">British</a></li>
@@ -367,11 +393,22 @@
                     <li class="search-link"><a href="recipes-by-cuisine/South%20East%20Asian">South East Asian</a></li>
                 </ul>
             </li>
-            <li class="menu-title"><p>... calorie count:</p>
-                <ul>
+            <li class="menu-title"><input type="checkbox" class="nav-index-title"> Calorie count</input>
+                <ul class="nav-index-content">
                     <li class="search-link"><a href="/recipes-by-calories/100" >Below 100 kcal</a></li>
                     <li class="search-link"><a href="/recipes-by-calories/250">Below 250 kcal</a></li>
                     <li class="search-link"><a href="/recipes-by-calories/500">Below 500 kcal</a></li>
+                </ul>
+            </li>
+            <li class="menu-title"><input type="checkbox" class="nav-index-title"> Dietary requirements</input>
+                <ul class="nav-index-content">
+                    <li class="search-link"><a href="/recipes-by-diet/vegan">Vegan</a></li>
+                    <li class="search-link"><a href="/recipes-by-diet/vegetarian">Vegetarian</a></li>
+                    <li class="search-link"><a href="/recipes-by-diet/kosher">Kosher</a></li>
+                    <li class="search-link"><a href="/recipes-by-diet/gluten-free">Gluten-free</a></li>
+                    <li class="search-link"><a href="/recipes-by-diet/dairy-free">No dairy</a></li>
+                    <li class="search-link"><a href="/recipes-by-diet/tree-nut-free">No nuts</a></li>
+                    <li class="search-link"><a href="/recipes-by-diet/shellfish-free">No shellfish</a></li>
                 </ul>
             </li>
         </ul>
