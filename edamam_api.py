@@ -95,9 +95,11 @@ def random_recipe():
     return list
 
 
-# def testrun():
-#     results = random_recipe()
-#     print(results)
-#
-#
+def testrun():
+    ingredient = input("What do you want to search for? ")
+    results = recipe_search(ingredient)
+    for recipes in results:
+        print (recipes['recipe']['label'])
+        print(recipes['recipe']['url'])
+
 # testrun()
