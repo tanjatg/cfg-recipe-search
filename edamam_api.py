@@ -1,10 +1,11 @@
 import requests
 import random
+import credentials
 
 
 def recipe_search(ingredient):
-    APP_ID = "1615c37c"
-    APP_KEY = "55c93edaaee28bc3ad1ffea9ca66f8b4"
+    APP_ID = credentials.app_id
+    APP_KEY = credentials.app_key
     result = requests.get(
         'https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, APP_ID, APP_KEY)
     )
@@ -13,32 +14,32 @@ def recipe_search(ingredient):
 
 
 def search_by_time(time):
-    APP_ID = "1615c37c"
-    APP_KEY = "55c93edaaee28bc3ad1ffea9ca66f8b4"
+    APP_ID = credentials.app_id
+    APP_KEY = credentials.app_key
     result = requests.get('https://api.edamam.com/api/recipes/v2?type=public&app_id={}&app_key={}&time={}&random=true'.format(APP_ID, APP_KEY, time))
     data = result.json()
     return data['hits']
 
 
 def search_by_cuisine(cuisineType):
-    APP_ID = "1615c37c"
-    APP_KEY = "55c93edaaee28bc3ad1ffea9ca66f8b4"
+    APP_ID = credentials.app_id
+    APP_KEY = credentials.app_key
     result = requests.get('https://api.edamam.com/api/recipes/v2?type=public&app_id={}&app_key={}&cuisineType={}&random=true'.format(APP_ID, APP_KEY, cuisineType))
     data = result.json()
     return data['hits']
 
 
 def search_by_calorie(calories):
-    APP_ID = "1615c37c"
-    APP_KEY = "55c93edaaee28bc3ad1ffea9ca66f8b4"
+    APP_ID = credentials.app_id
+    APP_KEY = credentials.app_key
     result = requests.get('https://api.edamam.com/api/recipes/v2?type=public&app_id={}&app_key={}&calories={}&random=true'.format(APP_ID, APP_KEY, calories))
     data = result.json()
     return data["hits"]
 
 
 def search_by_diet(diet):
-    APP_ID = "1615c37c"
-    APP_KEY = "55c93edaaee28bc3ad1ffea9ca66f8b4"
+    APP_ID = credentials.app_id
+    APP_KEY = credentials.app_key
     result = requests.get('https://api.edamam.com/api/recipes/v2?type=public&app_id={}&app_key={}&health={}&random=true'.format(APP_ID, APP_KEY, diet))
     data = result.json()
     return data["hits"]
