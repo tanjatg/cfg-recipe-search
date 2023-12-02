@@ -45,4 +45,4 @@ def display_by_diet(diet):
     health = diet
     return render_template('search_recipes_diet.html', recipe_list=recipe_list, health=health)
 
-app.run(debug=True)
+#app.run(debug=True)
